@@ -1,5 +1,11 @@
+# Build folders
+**/build
+
 # Java Class files
 **/*.class
 
 # VS Code files
 .vscode/
+
+# executable build files
+product-of-arrays
