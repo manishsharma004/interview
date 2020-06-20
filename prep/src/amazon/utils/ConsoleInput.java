@@ -1,4 +1,4 @@
-package amazon.input;
+package amazon.utils;
 
 import java.util.Scanner;
 
