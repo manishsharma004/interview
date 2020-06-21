@@ -4,14 +4,23 @@ import amazon.utils.ConsoleInput;
 
 class Solver {
     int convertFive(int N) {
-        if (N < 10)
-            return return5if0(N);
+        int exp = 1;
+        if (N == 0) {
+            return 5;
+        }
 
-        return convertFive(N/10)*10 + return5if0(N);
+        while(exp <= N) {
+            if (getDigit(N, exp) == 0) {
+                N += 5 * exp;
+            }
+            exp *= 10;
+        }
+
+        return N;
     }
 
-    private static int return5if0(int num) {
-        return (num%10 == 0) ? 5 : num%10;
+    private static int getDigit(int num, int exp) {
+        return (num % (exp*10)) / exp;
     }
 }
 
