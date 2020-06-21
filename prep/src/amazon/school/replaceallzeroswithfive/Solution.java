@@ -4,22 +4,14 @@ import amazon.utils.ConsoleInput;
 
 class Solver {
     int convertFive(int N) {
-        String strN = N + "";
-        int output = 0;
-        for(int i=0; i<strN.length(); i++) {
-            output *= 10;
-            output += isZero(strN, i) ? 5 : charToInt(strN, i);
-        }
+        if (N < 10)
+            return return5if0(N);
 
-        return output;
+        return convertFive(N/10)*10 + return5if0(N);
     }
 
-    static boolean isZero(String num, int index) {
-        return num.charAt(index) == '0';
-    }
-
-    static int charToInt(String num, int index) {
-        return num.charAt(index) - 48;
+    private static int return5if0(int num) {
+        return (num%10 == 0) ? 5 : num%10;
     }
 }
 
