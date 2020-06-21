@@ -3,14 +3,20 @@ package amazon.school.replaceallzeroswithfive;
 import amazon.utils.ConsoleInput;
 
 class Solver {
-    int convertFive(int N) {
+    private int N;
+
+    Solver(int N) {
+        this.N = N;
+    }
+
+    int convertFive() {
         int exp = 1;
         if (N == 0) {
             return 5;
         }
 
         while(exp <= N) {
-            if (getDigit(N, exp) == 0) {
+            if (getDigit(exp) == 0) {
                 N += 5 * exp;
             }
             exp *= 10;
@@ -19,8 +25,8 @@ class Solver {
         return N;
     }
 
-    private static int getDigit(int num, int exp) {
-        return (num % (exp*10)) / exp;
+    private int getDigit(int exp) {
+        return (N % (exp*10)) / exp;
     }
 }
 
@@ -35,7 +41,7 @@ public class Solution {
         for (int t=0; t<T; t++) {
             int N = ConsoleInput.nextInt();
 
-            System.out.println(new Solver().convertFive(N));
+            System.out.println(new Solver(N).convertFive());
         }
     }
 }
