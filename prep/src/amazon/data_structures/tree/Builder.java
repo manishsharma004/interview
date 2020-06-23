@@ -19,7 +19,7 @@ public class Builder {
         while(i<nodes.length) {
             TreeNode<String> node = queue.dequeue();
             String leftData = nodes[i++].trim();
-            String rightData = nodes[i++].trim();
+            String rightData = i < nodes.length ? nodes[i++].trim() : "N";
             if (!leftData.equals("N")) {
                 node.left(new TreeNode<String>(leftData));
                 queue.enqueue(node.left());

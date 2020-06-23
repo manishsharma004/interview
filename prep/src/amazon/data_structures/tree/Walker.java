@@ -1,12 +1,25 @@
 package amazon.data_structures.tree;
 
+import java.util.ArrayList;
+
 public class Walker {
-    public static void preOrderTraversal(TreeNode<String> root) {
+    public static <T> void printInOrderTraversal(TreeNode<T> root) {
         if (root == null) {
             return;
         }
-        preOrderTraversal(root.left());
+        printInOrderTraversal(root.left());
         System.out.print(root.data() + " ");
-        preOrderTraversal(root.right());
+        printInOrderTraversal(root.right());
+    }
+    public static <T> ArrayList<T> inOrderTraversal(TreeNode<T> root) {
+        ArrayList<T> traversal = new ArrayList<T>();
+
+        if (root != null) {
+            traversal.addAll(inOrderTraversal(root.left()));
+            traversal.add(root.data());
+            traversal.addAll(inOrderTraversal(root.right()));
+        }
+
+        return traversal;
     }
 }
