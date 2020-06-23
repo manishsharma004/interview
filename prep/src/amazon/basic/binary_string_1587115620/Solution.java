@@ -1,5 +1,7 @@
 package amazon.basic.binary_string_1587115620;
 
+import java.math.BigInteger;
+
 import amazon.math_utils.Combinations;
 import amazon.utils.ConsoleInput;
 
@@ -10,15 +12,15 @@ class Solver {
         this.S = S;
     }
 
-    public int binarySubstring() {
-        int onesCount = 0;
+    public BigInteger binarySubstring() {
+        BigInteger onesCount = new BigInteger("0");
 
         for(int i=0; i<S.length(); i++) {
             if (S.charAt(i) == '1')
-                onesCount++;
+                onesCount = onesCount.add(new BigInteger("1"));
         }
 
-        return Combinations.calculateCombinations(onesCount, 2);
+        return Combinations.calculateCombinations(onesCount, new BigInteger("2"));
     }
 }
 
@@ -30,6 +32,7 @@ public class Solution {
             int length = ConsoleInput.nextInt();
             ConsoleInput.nextLine();
             String S = ConsoleInput.nextLine();
+            // System.out.println(S);
             System.out.println(new Solver(S).binarySubstring());
         }
     }
