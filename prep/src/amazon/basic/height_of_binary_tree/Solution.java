@@ -6,6 +6,7 @@ import amazon.utils.ConsoleInput;
 
 class Solver<T> {
     private TreeNode<T> root;
+
     Solver(TreeNode<T> root) {
         this.root = root;
     }
