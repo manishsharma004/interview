@@ -2,32 +2,42 @@ package amazon.utils;
 
 public class Printer {
     public static void printArray(int[] array) {
-        printArray(array, 0, array.length);
+        printArray(array, 0, array.length, ",", true);
     }
-    public static void printArray(int[] array, int start, int end) {
+    public static void printArray(int[] array, int start, int end, String separator, boolean brackets) {
         end = end <= array.length ? end : array.length;
-        // System.out.print("[");
+        if (brackets) System.out.print("[");
         for (int i = start; i < end; i++) {
             System.out.printf("%3d", array[i]);
             if (i != end-1) {
-                System.out.print("   ");
+                System.out.print(separator + "  ");
             }
         }
-        // System.out.println("]");
+        if (brackets) System.out.print("]");
+
         System.out.println();
     }
     public static <T> void printArray(T[] array) {
-        printArray(array, 0, array.length);
+        printArray(array, ",", true);
     }
-    public static <T> void printArray(T[] array, int start, int end) {
+    public static <T> void printArray(T[] array, String separator, boolean brackets) {
+        printArray(array, 0, array.length, separator, brackets);
+    }
+    public static <T> void printArray(T[] array, int start, int end, String separator, boolean brackets) {
         end = end <= array.length ? end : array.length;
-        System.out.print("[");
+        String separatorString = separator + " ";
+        if (brackets) {
+            System.out.print("[");
+        }
         for (int i = start; i < end; i++) {
             System.out.print(array[i]);
             if (i != end-1) {
-                System.out.print(", ");
+                System.out.print(separatorString);
             }
         }
-        System.out.println("]");
+        if (brackets) {
+            System.out.print("]");
+        }
+        System.out.println();
     }
 }
