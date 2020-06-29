@@ -1,7 +1,6 @@
 package amazon.school.pascal_triangle;
 
 import amazon.utils.ConsoleInput;
-import amazon.utils.Printer;
 
 class Solver {
     private int K;
@@ -34,7 +33,7 @@ class Solver {
     }
     private void printArray(int index) {
         System.out.print(spaces(K -1 -index));
-        Printer.printArray(pascalArray, K -1 -index, K);
+        // Printer.printArray(pascalArray, K -1 -index, K);
     }
     private void updateArrayAt(int index) {
         pascalArray[index] += pascalArray[index+1];

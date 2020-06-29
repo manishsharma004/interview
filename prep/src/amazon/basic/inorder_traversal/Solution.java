@@ -6,7 +6,6 @@ import amazon.data_structures.tree.Builder;
 import amazon.data_structures.tree.TreeNode;
 import amazon.data_structures.tree.Walker;
 import amazon.utils.ConsoleInput;
-import amazon.utils.Printer;
 
 class Solver<T> {
     private TreeNode<T> root;

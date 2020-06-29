@@ -13,7 +13,7 @@ class Solver {
     public void solveWithSorting() {
         Printer.printArray(array);
         Arrays.sort(array);
-        Printer.printArray(array, 0, array.length-2);
+        // Printer.printArray(array, 0, array.length-2);
     }
     public void solve() {
         System.out.print("Input array = ");
