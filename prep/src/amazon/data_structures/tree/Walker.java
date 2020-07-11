@@ -22,4 +22,16 @@ public class Walker {
 
         return traversal;
     }
+
+    public static <T> ArrayList<T> preOrderTraversal(TreeNode<T> root) {
+        ArrayList<T> traversal = new ArrayList<T>();
+
+        if (null != root) {
+            traversal.add(root.data());
+            traversal.addAll(preOrderTraversal(root.left()));
+            traversal.addAll(preOrderTraversal(root.right()));
+        }
+
+        return traversal;
+    }
 }
